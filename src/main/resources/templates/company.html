@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/list.css}"/>
+
+</head>
+<body>
+<div class="container">
+    <h2 class="alert alert-success" th:if="${message}" th:text="${message}"></h2>
+
+    <h1>Lista firm</h1>
+
+    <table class="points_table">
+        <thead>
+        <tr>
+            <th class="col-md-2">Nazwa</th>
+            <th class="col-md-2">Ulica</th>
+            <th class="col-md-2">Numer</th>
+            <th class="col-md-2">Miasto</th>
+            <th class="col-md-2">E-mail</th>
+            <th class="col-md-2">Telefon</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${books}">
+            <td class="col-md-3" th:text="${company.getName()}"></td>
+            <td class="col-md-3" th:text="${company.getstreetName()}"></td>
+            <td class="col-md-3" th:text="${company.streetNumber()}"></td>
+            <td class="col-md-3" th:text="${company.city()}"></td>
+            <td class="col-md-3" th:text="${company.email()}"></td>
+            <td class="col-md-3" th:text="${company.phoneNumber()}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
