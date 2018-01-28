@@ -24,6 +24,7 @@ public class CompanyController {
     public List<Company> getAllCompany(){
         return companyService.getAllCompanies();
     }
+
     @RequestMapping(value = "/addnewcompany", method = RequestMethod.POST)
     public void saveCompany(@RequestBody Company company){
         companyService.createCompany(company);
