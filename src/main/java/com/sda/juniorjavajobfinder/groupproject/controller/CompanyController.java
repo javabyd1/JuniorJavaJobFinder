@@ -1,6 +1,7 @@
 package com.sda.juniorjavajobfinder.groupproject.controller;
 
 import com.sda.juniorjavajobfinder.groupproject.model.Company;
+import com.sda.juniorjavajobfinder.groupproject.service.CompanyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,16 +22,16 @@ public class CompanyController {
 
     @RequestMapping(method = RequestMethod.GET)
     public List<Company> getAllCompany(){
-        return companyService.getAllCompany();
+        return companyService.getAllCompanies();
     }
     @RequestMapping(value = "/addnewcompany", method = RequestMethod.POST)
     public void saveCompany(@RequestBody Company company){
-        companyService.saveCompany(company);
+        companyService.createCompany(company);
     }
-    @GetMapping(value = "{id}")
-    public ResponseEntity<Company>getCompanyId(@PathVariable int id){
-        return ResponseEntity.status(HttpStatus.OK)
-                .company(companyService.getCompanyById(id));
-    }
+//    @GetMapping(value = "{id}")
+//    public ResponseEntity<Company>getCompanyId(@PathVariable int id){
+//        return ResponseEntity.status(HttpStatus.OK)
+//                .company(companyService.getCompanyById(id));
+//    }
 
 }
