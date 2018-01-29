@@ -11,30 +11,29 @@
 </head>
 <body>
 <div class="container">
-    <h2 class="alert alert-success" th:if="${message}" th:text="${message}"></h2>
 
     <h1>Lista firm</h1>
 
     <table class="points_table">
         <thead>
         <tr>
-            <th class="col-md-2">Nazwa</th>
-            <th class="col-md-2">Ulica</th>
-            <th class="col-md-2">Numer</th>
-            <th class="col-md-2">Miasto</th>
-            <th class="col-md-2">E-mail</th>
-            <th class="col-md-2">Telefon</th>
+            <th class="col-md-2" width="100">Nazwa</th>
+            <th class="col-md-2" width="100">Ulica</th>
+            <th class="col-md-2" width="100">Numer</th>
+            <th class="col-md-2" width="100">Miasto</th>
+            <th class="col-md-2" width="100">E-mail</th>
+            <th class="col-md-2" width="100">Telefon</th>
 
         </tr>
         </thead>
         <tbody>
-        <tr th:each="book : ${books}">
+        <tr th:each="company : ${companies}">
             <td class="col-md-3" th:text="${company.getName()}"></td>
-            <td class="col-md-3" th:text="${company.getstreetName()}"></td>
-            <td class="col-md-3" th:text="${company.streetNumber()}"></td>
-            <td class="col-md-3" th:text="${company.city()}"></td>
-            <td class="col-md-3" th:text="${company.email()}"></td>
-            <td class="col-md-3" th:text="${company.phoneNumber()}"></td>
+            <td class="col-md-3" th:text="${company.getStreetName()}"></td>
+            <td class="col-md-3" th:text="${company.getStreetNumber()}"></td>
+            <td class="col-md-3" th:text="${company.getCity()}"></td>
+            <td class="col-md-3" th:text="${company.getEmail()}"></td>
+            <td class="col-md-3" th:text="${company.getPhoneNumber()}"></td>
         </tr>
         </tbody>
     </table>

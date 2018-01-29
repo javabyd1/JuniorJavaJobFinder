@@ -3,26 +3,25 @@ package com.sda.juniorjavajobfinder.groupproject.controller;
 import com.sda.juniorjavajobfinder.groupproject.model.Company;
 import com.sda.juniorjavajobfinder.groupproject.service.CompanyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-
-@RestController
-@RequestMapping("/company")
-public class CompanyController {
+@Controller
+public class MainController {
     @Autowired
     private CompanyServiceImpl companyService;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public List<Company> getAllCompany(){
-        return companyService.getAllCompanies();
+    @GetMapping(value = "company")
+    public ModelAndView showBooks() {
+        ModelAndView model = new ModelAndView();
+        model.addObject("companies", companyService.getAllCompanies());
+        model.setViewName("company");
+
+        return model;
     }
 
     @RequestMapping(value = "/addnewcompany", method = RequestMethod.POST)
