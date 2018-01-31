@@ -16,7 +16,7 @@ public class MainController {
     private CompanyServiceImpl companyService;
 
     @GetMapping(value = "company")
-    public ModelAndView showBooks() {
+    public ModelAndView showCompanies() {
         ModelAndView model = new ModelAndView();
         model.addObject("companies", companyService.getAllCompanies());
         model.setViewName("company");
