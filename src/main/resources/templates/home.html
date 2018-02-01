@@ -1,15 +1,84 @@
-<div class="container">
-    <div class="row">
-        <h2>Stylish Search Box</h2>
-        <div id="custom-search-input">
-            <div class="input-group col-md-12">
-                <input type="text" class="  search-query form-control" placeholder="Search" />
-                <span class="input-group-btn">
-                                    <button class="btn btn-danger" type="button">
-                                        <span class=" glyphicon glyphicon-search"></span>
-                                    </button>
-                                </span>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/home.css}" type="text/css"/>
+
+
+</head>
+<body>
+<div class="search-background">
+    <img src="https://lh4.googleusercontent.com/-T4pmKmAS5D4/U0uihfPzEZI/AAAAAAAAA2c/sN0mjJS2bx4/w957-h374-no/141.jpg">
+</div>
+<div class="well-searchbox">
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label class="col-md-4 control-label">Keyword</label>
+            <div class="col-md-8">
+                <input type="text" class="form-control" placeholder="Keyword" />
             </div>
         </div>
-    </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">Język</label>
+            <div class="col-md-8">
+                <select class="form-control" placeholder="Country">
+                    <option value="">All</option>
+                    <option value="">Java</option>
+                    <option value="">C++</option>
+                    <option value="">Python</option>
+                    <option value="">JavaScript</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">City</label>
+            <div class="col-md-8">
+                <select class="form-control" placeholder="Province">
+                    <option value="">All</option>
+                    <option value="">Bydgoszcz</option>
+                    <option value="">Toruń</option>
+                    <option value="">Poznań</option>
+                    <option value="">Warszawa</option>
+                    <option value="">Gdańsk</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">Salary</label>
+            <div class="col-md-8">
+                <select class="form-control" placeholder="City">
+                    <option value="">All</option>
+                    <option value=""> -1500</option>
+                    <option value="">1500-3000</option>
+                    <option value="">3000-5000</option>
+                    <option value="">5000- </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">Category</label>
+            <div class="col-md-8">
+                <select class="form-control" placeholder="Category">
+                    <option value="">All</option>
+                    <option value="">Category 1</option>
+                    <option value="">Category 2</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-offset-4 col-sm-5">
+            <button type="submit" class="btn btn-success">Search</button>
+        </div>
+    </form>
 </div>
+
+
+</body>
+</html>

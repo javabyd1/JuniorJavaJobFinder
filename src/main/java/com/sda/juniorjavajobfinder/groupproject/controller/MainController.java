@@ -24,6 +24,13 @@ public class MainController {
         return model;
     }
 
+    @GetMapping(value = "")
+    public ModelAndView home(){
+        ModelAndView model= new ModelAndView();
+        model.setViewName("home");
+        return model;
+    }
+
     @RequestMapping(value = "/addnewcompany", method = RequestMethod.POST)
     public void saveCompany(@RequestBody Company company){
         companyService.createCompany(company);
