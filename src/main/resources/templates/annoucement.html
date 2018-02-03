@@ -21,7 +21,8 @@
             <th class="col-md-2" width="100">Firma</th>
             <th class="col-md-2" width="100">JOB_POSITION</th>
             <th class="col-md-2" width="100">Miasto</th>
-            <th class="col-md-2" width="100">Opis</th>
+            <th class="col-md-1" width="100">Opis</th>
+            <th class="col-md-1" width="100">Data</th>
             <th class="col-md-1" width="100">Min wynagrodzenie</th>
             <th class="col-md-1" width="100">Max wynagrodzenie</th>
 
@@ -33,7 +34,8 @@
             <td class="col-md-2" th:text="${annoucement.getCompany().getName()}"></td>
             <td class="col-md-2" th:text="${annoucement.getJobPosition()}"></td>
             <td class="col-md-2" th:text="${annoucement.getCity().getName()}"></td>
-            <td class="col-md-2" th:text="${annoucement.getJobDescription()}"></td>
+            <td class="col-md-1" th:text="${annoucement.getJobDescription()}"></td>
+            <td class="col-md-1" th:text="${annoucement.getDate()}"></td>
             <td class="col-md-1" th:text="${annoucement.getMinSalary()}"></td>
             <td class="col-md-1" th:text="${annoucement.getMaxSalary()}"></td>
         </tr>
