@@ -43,7 +43,7 @@ public class MainController {
     @GetMapping(value = "annoucement")
     public ModelAndView showAnnoucements(){
         ModelAndView model = new ModelAndView();
-//        model.addObject("annoucements", annoucementService.getAllAnnoucement());
+        model.addObject("annoucements", annoucementService.getAllAnnoucement());
 
         model.setViewName("annoucement");
 
