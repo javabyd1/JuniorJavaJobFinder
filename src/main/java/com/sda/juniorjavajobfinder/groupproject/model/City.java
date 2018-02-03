@@ -13,12 +13,13 @@ public class City {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
     private String name;
     private String region;
 
     @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
-    private List<Annoucement> annoucements;
+    private List<Announcement> announcements;
 
     public Long getId() {
         return id;
@@ -44,11 +45,11 @@ public class City {
         this.region = region;
     }
 
-    public List<Annoucement> getAnnoucements() {
-        return annoucements;
+    public List<Announcement> getAnnouncements() {
+        return announcements;
     }
 
-    public void setAnnoucements(List<Annoucement> annoucements) {
-        this.annoucements = annoucements;
+    public void setAnnouncements(List<Announcement> announcements) {
+        this.announcements = announcements;
     }
 }

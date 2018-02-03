@@ -27,7 +27,7 @@ public class Company {
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     private List<User> recruiters;
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
-    private List<Annoucement> annoucements;
+    private List<Announcement> annoucements;
 
     public Long getId() {
         return id;

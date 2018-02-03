@@ -13,12 +13,13 @@ public class Devskills {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
     private String area;
     private String name;
 
     @OneToMany(mappedBy = "devskills", cascade = CascadeType.ALL)
-    private List<Annoucement> annoucements;
+    private List<Announcement> annoucements;
     @ManyToMany(cascade = CascadeType.ALL)
     private List<User> devUsers;
 
@@ -46,11 +47,11 @@ public class Devskills {
         this.name = name;
     }
 
-    public List<Annoucement> getAnnoucements() {
+    public List<Announcement> getAnnoucements() {
         return annoucements;
     }
 
-    public void setAnnoucements(List<Annoucement> annoucements) {
+    public void setAnnoucements(List<Announcement> annoucements) {
         this.annoucements = annoucements;
     }
 

@@ -22,7 +22,7 @@ public class GroupProjectApplication implements CommandLineRunner {
 	public void run(String... strings) throws Exception {
 
 		Company company = new Company();
-		company.setCity("Bydgoszcz");
+		company.setCity("Krakow");
 		company.setName("Atos");
 		companyService.createCompany(company);
 	}

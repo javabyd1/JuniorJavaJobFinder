@@ -1,70 +1,74 @@
-INSERT INTO company (name, street_name, street_number, city, email, description)
-VALUES ('Company 1', 'streetCompany 1', 'streetNumberCompany 1', 'city 1', 'email 1', 'Description of company 1');
-INSERT INTO company (name, street_name, street_number, city, email, description)
-VALUES ('Company 2', 'streetCompany 2', 'streetNumberCompany 2', 'city 2', 'email 2', 'Description of company 2');
-INSERT INTO company (name, street_name, street_number, city, email, description)
-VALUES ('Company 3', 'streetCompany 3', 'streetNumberCompany 3', 'city 3', 'email 3', 'Description of company 3');
-INSERT INTO company (name, street_name, street_number, city, email, description)
-VALUES ('Company 4', 'streetCompany 4', 'streetNumberCompany 4', 'city 4', 'email 4', 'Description of company 4');
-INSERT INTO company (name, street_name, street_number, city, email, description)
-VALUES ('Company 5', 'streetCompany 5', 'streetNumberCompany 5', 'city 5', 'email 5', 'Description of company 5');
-INSERT INTO company (name, street_name, street_number, city, email, description)
-VALUES ('Company 6', 'streetCompany 6', 'streetNumberCompany 6', 'city 6', 'email 6', 'Description of company 6');
-INSERT INTO company (name, street_name, street_number, city, email, description)
-VALUES ('Company 7', 'streetCompany 7', 'streetNumberCompany 7', 'city 7', 'email 7', 'Description of company 7');
-INSERT INTO company (name, street_name, street_number, city, email, description)
-VALUES ('Company 8', 'streetCompany 8', 'streetNumberCompany 8', 'city 8', 'email 8', 'Description of company 8');
-INSERT INTO user (name, last_name, email, password, phone_number, role, COMPANY_ID)
-VALUES ('UserName 1', 'UserLastname 1', 'User email 1', 'password 1', 'phone 1', 'role user 1', 4);
-INSERT INTO user (name, last_name, email, password, phone_number, role, COMPANY_ID)
-VALUES ('UserName 2', 'UserLastname 2', 'User email 2', 'password 2', 'phone 2', 'role user 2', 1);
-INSERT INTO user (name, last_name, email, password, phone_number, role, COMPANY_ID)
-VALUES ('UserName 3', 'UserLastname 3', 'User email 3', 'password 3', 'phone 3', 'role user 3', 2);
-INSERT INTO user (name, last_name, email, password, phone_number, role, COMPANY_ID)
-VALUES ('UserName 4', 'UserLastname 4', 'User email 4', 'password 4', 'phone 4', 'role user 4', 3);
-INSERT INTO user (name, last_name, email, password, phone_number, role, COMPANY_ID)
-VALUES ('UserName 5', 'UserLastname 5', 'User email 5', 'password 5', 'phone 5', 'role user 5', 8);
-INSERT INTO user (name, last_name, email, password, phone_number, role, COMPANY_ID)
-VALUES ('UserName 6', 'UserLastname 6', 'User email 6', 'password 6', 'phone 6', 'role user 6', 2);
-INSERT INTO user (name, last_name, email, password, phone_number, role, COMPANY_ID)
-VALUES ('UserName 7', 'UserLastname 7', 'User email 7', 'password 7', 'phone 7', 'role user 7', 6);
-INSERT INTO user (name, last_name, email, password, phone_number, role, COMPANY_ID)
-VALUES ('UserName 8', 'UserLastname 8', 'User email 8', 'password 8', 'phone 8', 'role user 8', 4);
-INSERT INTO devskills (area, name) VALUES ('devskills area 1', 'devskills Name 1');
-INSERT INTO devskills (area, name) VALUES ('devskills area 2', 'devskills Name 2');
-INSERT INTO devskills (area, name) VALUES ('devskills area 3', 'devskills Name 3');
-INSERT INTO devskills (area, name) VALUES ('devskills area 4', 'devskills Name 4');
-INSERT INTO devskills (area, name) VALUES ('devskills area 5', 'devskills Name 5');
-INSERT INTO devskills (area, name) VALUES ('devskills area 6', 'devskills Name 6');
-INSERT INTO devskills (area, name) VALUES ('devskills area 7', 'devskills Name 7');
-INSERT INTO devskills (area, name) VALUES ('devskills area 8', 'devskills Name 8');
-INSERT INTO devskills (area, name) VALUES ('devskills area 9', 'devskills Name 9');
-INSERT INTO city (name, region) VALUES ('city Name 1', 'city region 1');
-INSERT INTO city (name, region) VALUES ('city NAME 2', 'city region 2');
-INSERT INTO city (name, region) VALUES ('city Name 3', 'city region 3');
-INSERT INTO city (name, region) VALUES ('city NAME 4', 'city region 4');
-INSERT INTO city (name, region) VALUES ('city Name 5', 'city region 5');
-INSERT INTO city (name, region) VALUES ('city NAME 6', 'city region 6');
-INSERT INTO city (name, region) VALUES ('city Name 7', 'city region 7');
-INSERT INTO city (name, region) VALUES ('city NAME 8', 'city region 8');
-INSERT INTO city (name, region) VALUES ('city Name 9', 'city region 9');
-INSERT INTO annoucement (job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID,date)
-VALUES ('jobPosition 1', 'jobDescription 1', 500, 2000, 1, 2, 3, 4,2016-01-02);
-INSERT INTO annoucement (job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID,date)
-VALUES ('jobPosition 2', 'jobDescription 2', 1500, 2000, 2, 5, 8, 3,2017-05-22);
-INSERT INTO annoucement (job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID,date)
-VALUES ('jobPosition 3', 'jobDescription 3', 2000, 3000, 2, 2, 5, 2,2015-05-12);
-INSERT INTO annoucement (job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID,date)
-VALUES ('jobPosition 4', 'jobDescription 4', 1500, 5000, 3, 6, 8, 3,2017-01-07);
-INSERT INTO annoucement (job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID,date)
-VALUES ('jobPosition 5', 'jobDescription 5', 5500, 7000, 1, 6, 8, 8,2017-01-14);
-INSERT INTO annoucement (job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID,date)
-VALUES ('jobPosition 6', 'jobDescription 6', 10000, 14000, 7, 4, 6, 2,2013-07-29);
-INSERT INTO annoucement (job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID,date)
-VALUES ('jobPosition 7', 'jobDescription 7', 200, 1500, 5, 7, 3, 5,2014-08-07);
-INSERT INTO annoucement (job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID,date)
-VALUES ('jobPosition 8', 'jobDescription 8', 3000, 4000, 2, 6, 8, 4,2000-01-05);
-INSERT INTO annoucement (job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID,date)
-VALUES ('jobPosition 9', 'jobDescription 9', 7000, 8000, 2, 6, 7, 4,1985-10-07);
-INSERT INTO annoucement (job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID,date)
-VALUES ('jobPosition 10', 'jobDescription 10', 9000, 12000, 7, 2, 4, 5,1967-05-18);
+-- Almost life-real data inserted in order to test relations more easily
+INSERT INTO company (company_id, name, street_name, street_number, city, email, description) VALUES
+(1, 'Atos',       'Kraszewskiego',  '1',    'Bydgoszcz',   'atos@atos_bydgoszcz.pl',   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'),
+(2, 'QSG',        'Kolorowa',       '10',   'Poznan',      'kontakt@e-qsg.com',        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'),
+(3, 'OpusCapita', 'Grudziacka',     '46',   'Torun',       'biuro.pl@opuscapita.com',  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'),
+(4, 'Allegro',    'Grunwaldzka',    '182',  'Poznan',      'allegro@allegro.pl',       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'),
+(5, 'Atos',       'Wolowska',       '10',   'Wroclaw',     'atos@atos_wroclaw.pl',     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'),
+(6, 'SDA',        'Dluga',          '2',    'Gdansk',      'info@sdacademy.pl',        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'),
+(7, 'Comarch',    'Jana Pawla II',  '39a',  'Krakow',      'comarch@comarch.pl',       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'),
+(8, 'BlueEnergy', 'Towarowa',       '35',   'Poznan',      'biuro@grupablue.pl',       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua');
+
+INSERT INTO user (id, name, last_name, email, password, phone_number, role, COMPANY_ID) VALUES
+(1, 'Dariusz',  'Rozanski',     'user1@domain.p1', 'dr', '111-111-111', 'ADMIN', 6),
+(2, 'Natalia',  'Lewandowska',  'user2@domain.p1', 'nl', '222-222-222', 'ADMIN', 8),
+(3, 'Pawel',    'Orlowski',     'user3@domain.p1', 'po', '333-333-333', 'USER', 3),
+(4, 'Bartosz',  'Janczak',      'user4@domain.p1', 'bj', '444-444-444', 'USER', 7),
+(5, 'Michal',   'Garos',        'user5@domain.p1', 'mg', '555-555-555', 'USER', 5),
+(6, 'Mateusz',  'Deptula',      'user6@domain.p1', 'md', '666-666-666', 'USER', 3),
+(7, 'Daria',    'Biernat',      'user7@domain.p1', 'db', '777-777-777', 'USER', 2),
+(8, 'Marcin',   'Kroszel',      'user8@domain.p1', 'mk', '888-888-888', 'USER', 3);
+
+-- How can we manage to assign more than one devskill into one announcement?
+-- For example Junior Java Dev requires devskills nr. 1, 3 and 10?
+INSERT INTO devskills (id, area, name) VALUES
+(1, 'backend', 'Java'),
+(2, 'backend', 'Spring'),
+(3, 'backend', 'Hibernate'),
+(4, 'backend', 'JPA'),
+(5, 'backend', 'JDBC'),
+
+(6, 'frontend', 'HTML'),
+(7, 'frontend', 'CSS'),
+(8, 'frontend', 'JavaScript'),
+(9, 'frontend', 'Angular'),
+
+(10, 'utility', 'Git'),
+(11, 'utility', 'SVN'),
+(12, 'utility', 'Windows'),
+(13, 'utility', 'Linux'),
+(14, 'utility', 'MacOS'),
+
+(15, 'database', 'MySQL'),
+(16, 'database', 'Oracle'),
+(17, 'database', 'PostgreSQL'),
+(18, 'database', 'H2');
+
+-- In order to have list of all regions in Poland, these were added along with capitol cities
+INSERT INTO city (id, name, region) VALUES
+(1, 'Wroclaw', 'dolnoslaskie'),
+(2, 'Bydgoszcz', 'kujawsko-pomorskie'),
+(3, 'Lublin', 'lubelskie'),
+(4, 'Zielona Gora', 'lubuskie'),
+(5, 'Lodz', 'lodzkie'),
+(6, 'Krakow', 'malopolskie'),
+(7, 'Warszawa', 'mazowieckie'),
+(8, 'Opole', 'opolskie'),
+(9, 'Rzeszow', 'podkarpackie'),
+(10, 'Bialystok', 'podlaskie'),
+(11, 'Gdansk', 'pomorskie'),
+(12, 'Katowice', 'slaskie'),
+(13, 'Kielce', 'swietokrzystkie'),
+(14, 'Olsztyn', 'warminsko-mazurskie'),
+(15, 'Poznan', 'wielkopolskie'),
+(16, 'Szczecin', 'zachodniopomorskie'),
+(17, 'Zdalnie', '');
+
+INSERT INTO announcement (id, job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID) VALUES
+(1, 'Junior Java Developer', 'Description of Junior Java Developer', 2500, 3500, 2, 1, 1, 1),
+(2, 'Regular Java Developer', 'Description of Regular Java Developer', 4000, 5500, 15, 2, 1, 1),
+(3, 'Senior Java Developer', 'Description of Senior Java Developer', 6000, 12000, 2, 1, 1, 1),
+
+(4, 'MySQL Database Administrator', 'Description of MySQL Database Administrator', 3000, 5000, 15, 4, 15, 8),
+(5, 'Oracle Database Administrator', 'Description of Oracle Database Administrator', 3500, 4300, 2, 1, 1, 8),
+(6, 'PostreSQL Database Administrator', 'Description of PostreSQL Database Administrator', 3200, 4000, 1, 5, 17, 8);
