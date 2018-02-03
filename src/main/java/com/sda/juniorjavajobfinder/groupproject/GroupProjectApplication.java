@@ -1,6 +1,6 @@
 package com.sda.juniorjavajobfinder.groupproject;
 
-import com.sda.juniorjavajobfinder.groupproject.interfaces.AnnoucementService;
+import com.sda.juniorjavajobfinder.groupproject.interfaces.AnnouncementService;
 import com.sda.juniorjavajobfinder.groupproject.model.Announcement;
 import com.sda.juniorjavajobfinder.groupproject.service.CompanyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ public class GroupProjectApplication implements CommandLineRunner {
     @Autowired
     CompanyServiceImpl companyService;
     @Autowired
-    AnnoucementService annoucementService;
+    AnnouncementService annoucementService;
 
     public static void main(String[] args) {
         SpringApplication.run(GroupProjectApplication.class, args);
@@ -27,9 +27,9 @@ public class GroupProjectApplication implements CommandLineRunner {
     @Override
     public void run(String... strings) throws Exception {
 
-        for (Announcement announcement : annoucementService.getAllAnnoucement()) {
+        for (Announcement announcement : annoucementService.getAllAnnouncement()) {
             announcement.setDate(LocalDate.now());
-            annoucementService.updateAnnoucement(announcement);
+            annoucementService.updateAnnouncement(announcement);
         }
     }
 }

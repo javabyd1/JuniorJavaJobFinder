@@ -1,7 +1,7 @@
 package com.sda.juniorjavajobfinder.groupproject.controller;
 
 import com.sda.juniorjavajobfinder.groupproject.model.Company;
-import com.sda.juniorjavajobfinder.groupproject.service.AnnoucementServiceImpl;
+import com.sda.juniorjavajobfinder.groupproject.service.AnnouncementServiceImpl;
 import com.sda.juniorjavajobfinder.groupproject.service.CityServiceImpl;
 import com.sda.juniorjavajobfinder.groupproject.service.CompanyServiceImpl;
 import com.sda.juniorjavajobfinder.groupproject.service.DevskillsServiceImpl;
@@ -22,7 +22,7 @@ public class MainController {
     @Autowired
     private DevskillsServiceImpl devskillsService;
     @Autowired
-    private AnnoucementServiceImpl annoucementService;
+    private AnnouncementServiceImpl announcementService;
 
     @GetMapping(value = "")
     public ModelAndView home() {
@@ -42,12 +42,12 @@ public class MainController {
         return model;
     }
 
-    @GetMapping(value = "annoucement")
+    @GetMapping(value = "announcement")
     public ModelAndView showAnnoucements() {
         ModelAndView model = new ModelAndView();
-        model.addObject("annoucements", annoucementService.getAllAnnoucement());
+        model.addObject("announcements", announcementService.getAllAnnouncement());
 
-        model.setViewName("annoucement");
+        model.setViewName("announcement");
 
         return model;
     }
