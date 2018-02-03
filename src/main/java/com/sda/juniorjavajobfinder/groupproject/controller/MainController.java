@@ -25,13 +25,14 @@ public class MainController {
     private AnnoucementServiceImpl annoucementService;
 
     @GetMapping(value = "")
-    public ModelAndView home(){
-        ModelAndView model= new ModelAndView();
+    public ModelAndView home() {
+        ModelAndView model = new ModelAndView();
         model.addObject("cities", cityService.getAllCity());
         model.addObject("devskills", devskillsService.getAllDevskills());
         model.setViewName("home");
         return model;
     }
+
     @GetMapping(value = "company")
     public ModelAndView showCompanies() {
         ModelAndView model = new ModelAndView();
@@ -40,8 +41,9 @@ public class MainController {
 
         return model;
     }
+
     @GetMapping(value = "annoucement")
-    public ModelAndView showAnnoucements(){
+    public ModelAndView showAnnoucements() {
         ModelAndView model = new ModelAndView();
 //        model.addObject("annoucements", annoucementService.getAllAnnoucement());
 
@@ -52,7 +54,7 @@ public class MainController {
 
 
     @RequestMapping(value = "/addnewcompany", method = RequestMethod.POST)
-    public void saveCompany(@RequestBody Company company){
+    public void saveCompany(@RequestBody Company company) {
         companyService.createCompany(company);
     }
 //    @GetMapping(value = "{id}")
