@@ -75,7 +75,10 @@
             </div>
         </div>
         <div class="col-sm-offset-4 col-sm-5">
-            <button type="submit" class="btn btn-success">Search</button>
+            <!--<button type="submit" class="btn btn-success">Search</button>-->
+            <form th:action="@{/company}" method="get">
+                <input class="btn btn-lg btn-registration btn-block" name="company" type="submit" value="Search"/>
+            </form>
         </div>
     </form>
 </div>
