@@ -13,6 +13,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
     private String name;
     @Column(name = "last_name")
@@ -27,10 +28,10 @@ public class User {
     @JoinColumn(name = "company_id")
     private Company company;
     @OneToMany(mappedBy = "recruiter", cascade = CascadeType.ALL)
-    private List<Annoucement> addedAnnoucements;
+    private List<Announcement> addedAnnoucements;
 
     @ManyToMany(mappedBy = "applyingUsers")
-    private List<Annoucement> applyingAnnoucements;
+    private List<Announcement> applyingAnnoucements;
     @ManyToMany(mappedBy = "devUsers")
     private List<Devskills> skills;
 }

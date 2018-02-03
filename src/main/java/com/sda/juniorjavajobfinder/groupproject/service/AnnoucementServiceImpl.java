@@ -1,7 +1,7 @@
 package com.sda.juniorjavajobfinder.groupproject.service;
 
 import com.sda.juniorjavajobfinder.groupproject.interfaces.AnnoucementService;
-import com.sda.juniorjavajobfinder.groupproject.model.Annoucement;
+import com.sda.juniorjavajobfinder.groupproject.model.Announcement;
 import com.sda.juniorjavajobfinder.groupproject.repository.AnnoucementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,22 +15,22 @@ public class AnnoucementServiceImpl implements AnnoucementService {
     private AnnoucementRepository annoucementRepository;
 
     @Override
-    public List<Annoucement> getAllAnnoucement() {
+    public List<Announcement> getAllAnnoucement() {
         return annoucementRepository.findAll();
     }
 
     @Override
-    public Annoucement createAnnoucement(Annoucement annoucement) {
+    public Announcement createAnnoucement(Announcement annoucement) {
         return annoucementRepository.save(annoucement);
     }
 
     @Override
-    public Annoucement updateAnnoucement(Annoucement annoucement) {
+    public Announcement updateAnnoucement(Announcement annoucement) {
         return annoucementRepository.save(annoucement);
     }
 
     @Override
-    public void deleteAnnoucement(Annoucement annoucement) {
+    public void deleteAnnoucement(Announcement annoucement) {
         annoucementRepository.delete(annoucement);
     }
 }

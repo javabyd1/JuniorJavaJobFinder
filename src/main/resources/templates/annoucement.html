@@ -28,7 +28,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="annoucement : ${annoucements}">
+        <tr th:each="annoucement : ${announcements}">
             <td class="col-md-2" th:text="${annoucement.getDevskills().getName()}"></td>
             <td class="col-md-2" th:text="${annoucement.getCompany().getName()}"></td>
             <td class="col-md-2" th:text="${annoucement.getJobPosition()}"></td>
