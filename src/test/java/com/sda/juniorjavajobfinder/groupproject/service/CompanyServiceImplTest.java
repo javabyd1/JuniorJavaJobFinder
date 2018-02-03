@@ -10,6 +10,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.junit.Assert.*;
+
 @RunWith(MockitoJUnitRunner.class)
 public class CompanyServiceImplTest {
 
@@ -21,14 +22,21 @@ public class CompanyServiceImplTest {
 
     @Test
     public void createCompany() {
-        Company company=new Company();
-
+        Company company = new Company();
+        //When
         companyService.createCompany(company);
+
+        //then
         BDDMockito.then(companyRepository).should().save(company);
     }
-    @Test
-    public void getAllCompanys(){
 
+    @Test
+    public void getAllCompanys() {
+        //when
+        companyService.getAllCompanies();
+
+        //then
+        BDDMockito.then(companyRepository).should().findAll();
     }
 
 }
