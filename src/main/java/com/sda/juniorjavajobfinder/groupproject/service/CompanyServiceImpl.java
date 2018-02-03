@@ -9,28 +9,32 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CompanyServiceImpl implements CompanyService{
+public class CompanyServiceImpl implements CompanyService {
 
     @Autowired
     private CompanyRepository companyRepository;
 
     @Override
     public List<Company> getAllCompanies() {
+
         return companyRepository.findAll();
     }
 
     @Override
     public Company createCompany(Company company) {
+
         return companyRepository.save(company);
     }
 
     @Override
     public Company updateCompany(Company company) {
+
         return companyRepository.save(company);
     }
 
     @Override
     public void deleteCompany(Company company) {
+
         companyRepository.delete(company);
     }
 }

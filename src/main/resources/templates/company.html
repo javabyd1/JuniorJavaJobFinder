@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" th:href="@{/css/list.css}"/>
+    <link rel="stylesheet" th:href="@{css/company.css}" type="text/css" />
 
 </head>
 <body>
@@ -22,18 +22,18 @@
             <th class="col-md-2" width="100">Numer</th>
             <th class="col-md-2" width="100">Miasto</th>
             <th class="col-md-2" width="100">E-mail</th>
-            <th class="col-md-2" width="100">Telefon</th>
+            <th class="col-md-2" width="100">Opis</th>
 
         </tr>
         </thead>
         <tbody>
         <tr th:each="company : ${companies}">
-            <td class="col-md-3" th:text="${company.getName()}"></td>
-            <td class="col-md-3" th:text="${company.getStreetName()}"></td>
-            <td class="col-md-3" th:text="${company.getStreetNumber()}"></td>
-            <td class="col-md-3" th:text="${company.getCity()}"></td>
-            <td class="col-md-3" th:text="${company.getEmail()}"></td>
-            <td class="col-md-3" th:text="${company.getPhoneNumber()}"></td>
+            <td class="col-md-2" th:text="${company.getName()}"></td>
+            <td class="col-md-2" th:text="${company.getStreetName()}"></td>
+            <td class="col-md-2" th:text="${company.getStreetNumber()}"></td>
+            <td class="col-md-2" th:text="${company.getCity()}"></td>
+            <td class="col-md-2" th:text="${company.getEmail()}"></td>
+            <td class="col-md-2" th:text="${company.getDescription()}"></td>
         </tr>
         </tbody>
     </table>
