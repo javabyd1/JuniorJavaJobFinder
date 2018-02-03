@@ -1,5 +1,6 @@
 package com.sda.juniorjavajobfinder.groupproject;
 
+import com.sda.juniorjavajobfinder.groupproject.model.Annoucement;
 import com.sda.juniorjavajobfinder.groupproject.model.Company;
 import com.sda.juniorjavajobfinder.groupproject.service.CompanyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,8 @@ public class GroupProjectApplication implements CommandLineRunner {
 		company.setCity("Bydgoszcz");
 		company.setName("Atos");
 		companyService.createCompany(company);
+
+		Annoucement annoucement = new Annoucement();
+		System.out.println(annoucement.getDate());
 	}
 }

@@ -49,22 +49,22 @@ INSERT INTO city (name, region) VALUES ('city Name 7', 'city region 7');
 INSERT INTO city (name, region) VALUES ('city NAME 8', 'city region 8');
 INSERT INTO city (name, region) VALUES ('city Name 9', 'city region 9');
 INSERT INTO annoucement (job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID,date)
-VALUES ('jobPosition 1', 'jobDescription 1', 500, 2000, 1, 2, 3, 4,2016-01-02);
+VALUES ('jobPosition 1', 'jobDescription 1', 500, 2000, 1, 2, 3, 4,20160102);
 INSERT INTO annoucement (job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID,date)
-VALUES ('jobPosition 2', 'jobDescription 2', 1500, 2000, 2, 5, 8, 3,2017-05-22);
+VALUES ('jobPosition 2', 'jobDescription 2', 1500, 2000, 2, 5, 8, 3,20170522);
 INSERT INTO annoucement (job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID,date)
-VALUES ('jobPosition 3', 'jobDescription 3', 2000, 3000, 2, 2, 5, 2,2015-05-12);
+VALUES ('jobPosition 3', 'jobDescription 3', 2000, 3000, 2, 2, 5, 2,20150512);
 INSERT INTO annoucement (job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID,date)
-VALUES ('jobPosition 4', 'jobDescription 4', 1500, 5000, 3, 6, 8, 3,2017-01-07);
+VALUES ('jobPosition 4', 'jobDescription 4', 1500, 5000, 3, 6, 8, 3,20170107);
 INSERT INTO annoucement (job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID,date)
-VALUES ('jobPosition 5', 'jobDescription 5', 5500, 7000, 1, 6, 8, 8,2017-01-14);
+VALUES ('jobPosition 5', 'jobDescription 5', 5500, 7000, 1, 6, 8, 8,20170114);
 INSERT INTO annoucement (job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID,date)
-VALUES ('jobPosition 6', 'jobDescription 6', 10000, 14000, 7, 4, 6, 2,2013-07-29);
+VALUES ('jobPosition 6', 'jobDescription 6', 10000, 14000, 7, 4, 6, 2,20130729);
 INSERT INTO annoucement (job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID,date)
-VALUES ('jobPosition 7', 'jobDescription 7', 200, 1500, 5, 7, 3, 5,2014-08-07);
+VALUES ('jobPosition 7', 'jobDescription 7', 200, 1500, 5, 7, 3, 5,20140807);
 INSERT INTO annoucement (job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID,date)
-VALUES ('jobPosition 8', 'jobDescription 8', 3000, 4000, 2, 6, 8, 4,2000-01-05);
+VALUES ('jobPosition 8', 'jobDescription 8', 3000, 4000, 2, 6, 8, 4,20000105);
 INSERT INTO annoucement (job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID,date)
-VALUES ('jobPosition 9', 'jobDescription 9', 7000, 8000, 2, 6, 7, 4,1985-10-07);
+VALUES ('jobPosition 9', 'jobDescription 9', 7000, 8000, 2, 6, 7, 4,19851007);
 INSERT INTO annoucement (job_position, job_description, min_salary, max_salary, city_id, company_id, devskills_id, RECRUITER_ID,date)
-VALUES ('jobPosition 10', 'jobDescription 10', 9000, 12000, 7, 2, 4, 5,1967-05-18);
+VALUES ('jobPosition 10', 'jobDescription 10', 9000, 12000, 7, 2, 4, 5,19670518);
