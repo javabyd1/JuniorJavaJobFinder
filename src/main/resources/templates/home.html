@@ -6,59 +6,60 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" th:href="@{/css/home.css}" type="text/css"/>
-
+    <link rel="stylesheet" th:href="@{/css/home.css}"/>
 
 </head>
 <body>
 <div class="search-background">
-    <img src="css/tlo.jpg" />
+    <img src="css/tlo.jpg" style="width: 100%; height: 50%;"/>
 </div>
 <div class="well-searchbox">
     <form class="form-horizontal" role="form">
         <div class="form-group">
             <label class="col-md-4 control-label">Keyword</label>
             <div class="col-md-8">
-                <input type="text" class="form-control" placeholder="Keyword" />
+                <input type="text" class="form-control" placeholder="Keyword"/>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-4 control-label">Język</label>
             <div class="col-md-8">
-                <select class="form-control" placeholder="Country">
+                <select class="form-control" placeholder="Devskills">
+
                     <option value="">All</option>
-                    <option value="">Java</option>
-                    <option value="">C++</option>
-                    <option value="">Python</option>
-                    <option value="">JavaScript</option>
+                    <option th:each="devs : ${devskills}"
+                            th:value="${devs.getId()}"
+                            th:text="${devs.getName()}">
+
+                    </option>
                 </select>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label">City</label>
+            <label class="col-md-4 control-label">Miasto</label>
             <div class="col-md-8">
-                <select class="form-control" placeholder="Province">
+                <select class="form-control" placeholder="Cities">
                     <option value="">All</option>
-                    <option value="">Bydgoszcz</option>
-                    <option value="">Toruń</option>
-                    <option value="">Poznań</option>
-                    <option value="">Warszawa</option>
-                    <option value="">Gdańsk</option>
+                    <option th:each="ciet : ${cities}"
+                            th:value="${ciet.getId()}"
+                            th:text="${ciet.getName()}">
+                    </option>
                 </select>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label">Salary</label>
+            <label class="col-md-4 control-label">Wynagrodzenie</label>
             <div class="col-md-8">
-                <select class="form-control" placeholder="City">
+                <select class="form-control" placeholder="Salary">
                     <option value="">All</option>
                     <option value=""> -1500</option>
                     <option value="">1500-3000</option>
                     <option value="">3000-5000</option>
-                    <option value="">5000- </option>
+                    <option value="">5000- 9000</option>
+                    <option value="">10000-</option>
                 </select>
             </div>
         </div>

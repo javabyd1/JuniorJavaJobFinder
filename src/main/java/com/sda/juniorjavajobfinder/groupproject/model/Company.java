@@ -3,11 +3,8 @@ package com.sda.juniorjavajobfinder.groupproject.model;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "company")
 @AllArgsConstructor
@@ -19,11 +16,18 @@ public class Company {
     @Column(name = "company_id")
     private Long id;
     private String name;
+    @Column(name = "street_name")
     private String streetName;
+    @Column(name = "street_number")
     private String streetNumber;
     private String city;
     private String email;
-    private String phoneNumber;
+    private String description;
+
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    private List<User> recruiters;
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    private List<Annoucement> annoucements;
 
     public Long getId() {
         return id;
@@ -73,11 +77,12 @@ public class Company {
         this.email = email;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getDescription() {
+        return description;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setDescription(String description) {
+        this.description = description;
     }
+
 }
