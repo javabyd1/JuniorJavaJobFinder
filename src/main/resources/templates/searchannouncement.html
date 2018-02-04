@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{css/company.css}" type="text/css" />
+
+</head>
+<body>
+<div class="container">
+
+    <h1>Lista ogłoszeń</h1>
+
+    <table class="points_table">
+        <thead>
+        <tr>
+            <th class="col-md-2" width="100">umiejętności</th>
+            <th class="col-md-2" width="100">Firma</th>
+            <th class="col-md-2" width="100">JOB_POSITION</th>
+            <th class="col-md-2" width="100">Miasto</th>
+            <th class="col-md-1" width="100">Opis</th>
+            <th class="col-md-1" width="100">Data</th>
+            <th class="col-md-1" width="100">Min wynagrodzenie</th>
+            <th class="col-md-1" width="100">Max wynagrodzenie</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="announcement : ${resultannouncement}">
+            <td class="col-md-2" th:text="${announcement.getDevskills().getName()}"></td>
+            <td class="col-md-2" th:text="${announcement.getCompany().getName()}"></td>
+            <td class="col-md-2" th:text="${announcement.getJobPosition()}"></td>
+            <td class="col-md-2" th:text="${announcement.getCity().getName()}"></td>
+            <td class="col-md-1" th:text="${announcement.getJobDescription()}"></td>
+            <td class="col-md-1" th:text="${announcement.getDate()}"></td>
+            <td class="col-md-1" th:text="${announcement.getMinSalary()}"></td>
+            <td class="col-md-1" th:text="${announcement.getMaxSalary()}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

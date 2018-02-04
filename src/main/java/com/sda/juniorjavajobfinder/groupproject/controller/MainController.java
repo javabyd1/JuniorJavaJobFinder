@@ -1,5 +1,6 @@
 package com.sda.juniorjavajobfinder.groupproject.controller;
 
+import com.sda.juniorjavajobfinder.groupproject.model.Announcement;
 import com.sda.juniorjavajobfinder.groupproject.model.Company;
 import com.sda.juniorjavajobfinder.groupproject.service.AnnouncementServiceImpl;
 import com.sda.juniorjavajobfinder.groupproject.service.CityServiceImpl;
@@ -52,6 +53,14 @@ public class MainController {
         return model;
     }
 
+    @GetMapping(value = "resultannouncement")
+    public ModelAndView resultSearch() {
+        ModelAndView model = new ModelAndView();
+        model.addObject("resultannouncement", announcementService.getAllAnnouncement());
+        model.addObject("announcement", new Announcement());
+        model.setViewName("searchannouncement");
+        return model;
+    }
 
     @RequestMapping(value = "/addnewcompany", method = RequestMethod.POST)
     public void saveCompany(@RequestBody Company company) {

@@ -14,7 +14,8 @@
     <img src="css/tlo.jpg" style="width: 100%; height: 50%;"/>
 </div>
 <div class="well-searchbox">
-    <form class="form-horizontal" role="form" th:action="@{/announcement}" method="get">
+    <form class="form-horizontal" role="form" th:action="@{/searchAnnouncement}" th:object="${announcement}" method="post">
+        <fieldset>
         <div class="form-group">
             <label class="col-md-4 control-label">Keyword</label>
             <div class="col-md-8">
@@ -40,13 +41,13 @@
         <div class="form-group">
             <label class="col-md-4 control-label">Miasto</label>
             <div class="col-md-8">
-                <select multiple="multiple" class="form-control" placeholder="Cities">
-                    <option value="">All</option>
+                <select multiple="multiple" class="form-control" placeholder="Cities" th:field="*{city.id}">
+                    <!--<option value="">All</option>-->
                     <option th:each="ciet : ${cities}"
                             th:value="${ciet.getId()}"
                             th:text="${ciet.getName()}">
                     </option>
-                </select>
+                </select> n
             </div>
         </div>
 
@@ -77,6 +78,7 @@
         <div class="col-sm-offset-4 col-sm-5">
             <button type="submit" class="btn btn-success">Search</button>
         </div>
+        </fieldset>
     </form>
 </div>
 
