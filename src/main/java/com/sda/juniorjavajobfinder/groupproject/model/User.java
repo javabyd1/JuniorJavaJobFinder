@@ -1,5 +1,7 @@
 package com.sda.juniorjavajobfinder.groupproject.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -23,15 +25,17 @@ public class User {
     @Column(name = "phone_number")
     private String phoneNumber;
     private String role;
-
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
+    @JsonBackReference
     @OneToMany(mappedBy = "recruiter", cascade = CascadeType.ALL)
     private List<Announcement> addedAnnoucements;
-
+    @JsonBackReference
     @ManyToMany(mappedBy = "applyingUsers")
     private List<Announcement> applyingAnnoucements;
+    @JsonBackReference
     @ManyToMany(mappedBy = "devUsers")
     private List<Devskills> skills;
 }

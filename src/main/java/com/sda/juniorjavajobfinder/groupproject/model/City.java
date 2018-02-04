@@ -1,5 +1,6 @@
 package com.sda.juniorjavajobfinder.groupproject.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -17,7 +18,7 @@ public class City {
     private Long id;
     private String name;
     private String region;
-
+    @JsonBackReference
     @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
     private List<Announcement> announcements;
 
