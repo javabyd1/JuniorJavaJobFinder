@@ -8,10 +8,7 @@ import com.sda.juniorjavajobfinder.groupproject.service.CompanyServiceImpl;
 import com.sda.juniorjavajobfinder.groupproject.service.DevskillsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -30,6 +27,7 @@ public class MainController {
         ModelAndView model = new ModelAndView();
         model.addObject("cities", cityService.getAllCity());
         model.addObject("devskills", devskillsService.getAllDevskills());
+        model.addObject("announcement", new Announcement());
         model.setViewName("home");
         return model;
     }
@@ -47,18 +45,17 @@ public class MainController {
     public ModelAndView showAnnoucements() {
         ModelAndView model = new ModelAndView();
         model.addObject("announcements", announcementService.getAllAnnouncement());
-
         model.setViewName("announcement");
 
         return model;
     }
 
-    @GetMapping(value = "resultannouncement")
-    public ModelAndView resultSearch() {
+    @GetMapping(value = "resultannouncement{city.id}")
+    public ModelAndView resultSearch(@RequestParam("city.id") String id) {
         ModelAndView model = new ModelAndView();
-        model.addObject("resultannouncement", announcementService.getAllAnnouncement());
-        model.addObject("announcement", new Announcement());
+        model.addObject("resultannouncement", announcementService.getCityAnnouncement((Long.valueOf(id))));
         model.setViewName("searchannouncement");
+        System.out.println(id);
         return model;
     }
 

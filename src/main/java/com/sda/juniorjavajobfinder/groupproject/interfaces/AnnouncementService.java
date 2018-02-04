@@ -9,4 +9,5 @@ public interface AnnouncementService {
     Announcement createAnnouncement(Announcement announcement);
     Announcement updateAnnouncement(Announcement announcement);
     void deleteAnnouncement(Announcement announcement);
+
 }
