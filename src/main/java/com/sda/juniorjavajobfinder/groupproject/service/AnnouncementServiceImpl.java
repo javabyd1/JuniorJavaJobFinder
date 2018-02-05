@@ -20,6 +20,11 @@ public class AnnouncementServiceImpl implements AnnouncementService {
         return announcementRepository.findByDevskills_Name(devName);
     }
 
+    public List<Announcement> getOffersByDevskillsAndCities(String devName, String cityName){
+        return announcementRepository.findByDevskills_NameAndCityName(devName,cityName);
+    }
+
+
 //    public Announcement getDevskillsByName(String devName) {
 //        Optional<Announcement> skills = announcementRepository.findByDevskills_Name(devName);
 //        return skills.get();

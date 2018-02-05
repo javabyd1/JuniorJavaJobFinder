@@ -34,6 +34,13 @@ public class MainController {
                 .body(announcementService.getDevskillsByName(name));
     }
 
+    @GetMapping("/announcements/{devName}/{cityName}")
+    public ResponseEntity<List<Announcement>> findAnnouncementBySkillsAndCities(@PathVariable(value ="devName") String devName, @PathVariable(value = "cityName" ) String cityName){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(announcementService.getOffersByDevskillsAndCities(devName,cityName));
+    }
+
 
     @GetMapping(value = "")
     public ModelAndView home() {
