@@ -10,9 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -34,10 +37,10 @@ public class MainController {
     }
 
     @GetMapping("/announcements/{devName}/{cityName}")
-    public ResponseEntity<List<Announcement>> findAnnouncementBySkillsAndCities(@PathVariable(value ="devName") String devName, @PathVariable(value = "cityName" ) String cityName){
+    public ResponseEntity<List<Announcement>> findAnnouncementBySkillsAndCities(@PathVariable(value = "devName") String devName, @PathVariable(value = "cityName") String cityName) {
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(announcementService.getOffersByDevskillsAndCities(devName,cityName));
+                .body(announcementService.getOffersByDevskillsAndCities(devName, cityName));
     }
 
     @GetMapping(value = "")
@@ -67,31 +70,19 @@ public class MainController {
         return model;
     }
 
-//    @GetMapping(value = "resultannouncement{city.id}")
-//    public ModelAndView resultSearch(@RequestParam("city.id") String id) {
-//        ModelAndView model = new ModelAndView();
-//        model.addObject("resultannouncement", announcementService.getCityAnnouncement((Long.valueOf(id))));
-//        model.setViewName("searchannouncement");
-//        System.out.println(id);
-//        return model;
-//    }
-
-//    @GetMapping(value = "resultannouncement{devskills.id}")
-//    public ModelAndView resultSearchDev(@RequestParam("devskills.id") String id) {
-//        ModelAndView model = new ModelAndView();
-//        model.addObject("resultannouncement", announcementService.getDevSkillsAnnouncement(Long.valueOf(id)));
-//        model.setViewName("searchannouncement");
-//        System.out.println(id);
-//        return model;
-//    }
-
-
-
-    @GetMapping(value = "resultannouncement{devskills.id}{city.id}")
-    public ModelAndView resultSearchByDevSkillsAndCities (@RequestParam("devskills.id")String devSkillId, @RequestParam("city.id") String cityId) {
+    @PostMapping(value = "resultannouncement")
+    public ModelAndView resultAnnouncement(@RequestBody MultiValueMap<String, String> formParams) {
         ModelAndView model = new ModelAndView();
-        model.addObject("resultannouncement", announcementService.getCityOffersByDevskillsAndCities((Long.valueOf(devSkillId)),(Long.valueOf(cityId))));
+        List<String> list = Arrays.asList(formParams.getFirst("city.id").split(","));
+
+        model.addObject("resultannouncement", announcementService.getCityOffersByDevskillsAndCities
+                ((Long.valueOf(formParams.getFirst("devskills.id"))),
+                        (Long.valueOf(formParams.getFirst("city.id")))));
         model.setViewName("searchannouncement");
+
+        System.out.println(Long.valueOf(formParams.getFirst("devskills.id")));
+        System.out.println(Long.valueOf(formParams.getFirst("city.id")));
+        System.out.println(formParams);
         return model;
     }
 
@@ -99,10 +90,4 @@ public class MainController {
     public void saveCompany(@RequestBody Company company) {
         companyService.createCompany(company);
     }
-//    @GetMapping(value = "{id}")
-//    public ResponseEntity<Company>getCompanyId(@PathVariable int id){
-//        return ResponseEntity.status(HttpStatus.OK)
-//                .company(companyService.getCompanyById(id));
-//    }
-
 }

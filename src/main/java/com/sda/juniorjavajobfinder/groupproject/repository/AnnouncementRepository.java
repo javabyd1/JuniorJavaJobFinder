@@ -20,4 +20,7 @@ public interface AnnouncementRepository extends JpaRepository<Announcement, Long
 
     List<Announcement> findByDevskills_Name(String name);
     List<Announcement> findByDevskills_NameAndCityName(String devName, String cityName);
+
+    List<Announcement> findByCity_Name(String name);
+
 }
