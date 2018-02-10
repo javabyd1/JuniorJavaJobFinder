@@ -38,22 +38,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("Marcin")
                 .password("mk")
                 .roles("USER", "ADMIN");
+
+        // Bartosz Janczak
+        userManager
+                .withUser("Bartosz")
+                .password("bj")
+                .roles("USER", "ADMIN");
     }
 
     @Override
     protected void configure(HttpSecurity securityConfig) throws Exception {
         securityConfig
-                .authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers("/console/**").permitAll()
-                .antMatchers("/company").authenticated()
+             .authorizeRequests()
+                .antMatchers("/login").permitAll()
+                .anyRequest().authenticated()
                 .and()
-                .formLogin()
-//                .loginPage("/login")
-                .defaultSuccessUrl("/company")
+             .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("http://localhost:8888/")
                 .and()
-                .logout()
-                .logoutSuccessUrl("/");
+            .logout()
+                .logoutSuccessUrl("/login");
 
         securityConfig.csrf().disable();
         securityConfig.headers().frameOptions().disable();

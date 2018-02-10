@@ -63,7 +63,7 @@ public class MainController {
     }
 
     @GetMapping(value = "announcement")
-    public ModelAndView showAnnoucements() {
+    public ModelAndView showAnnouncements() {
         ModelAndView model = new ModelAndView();
         model.addObject("announcements", announcementService.getAllAnnouncement());
         model.setViewName("announcement");
@@ -91,3 +91,4 @@ public class MainController {
         companyService.createCompany(company);
     }
 }
+
