@@ -7,9 +7,13 @@ import com.sda.juniorjavajobfinder.groupproject.service.CityServiceImpl;
 import com.sda.juniorjavajobfinder.groupproject.service.CompanyServiceImpl;
 import com.sda.juniorjavajobfinder.groupproject.service.DevskillsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 public class MainController {
@@ -21,6 +25,20 @@ public class MainController {
     private DevskillsServiceImpl devskillsService;
     @Autowired
     private AnnouncementServiceImpl announcementService;
+
+    @GetMapping("/announcements/{name}")
+    public ResponseEntity<List<Announcement>> findAnnouncementBySkills(@PathVariable(value = "name") String name) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(announcementService.getDevskillsByName(name));
+    }
+
+    @GetMapping("/announcements/{devName}/{cityName}")
+    public ResponseEntity<List<Announcement>> findAnnouncementBySkillsAndCities(@PathVariable(value ="devName") String devName, @PathVariable(value = "cityName" ) String cityName){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(announcementService.getOffersByDevskillsAndCities(devName,cityName));
+    }
 
     @GetMapping(value = "")
     public ModelAndView home() {
@@ -46,7 +64,6 @@ public class MainController {
         ModelAndView model = new ModelAndView();
         model.addObject("announcements", announcementService.getAllAnnouncement());
         model.setViewName("announcement");
-
         return model;
     }
 
@@ -77,7 +94,6 @@ public class MainController {
         model.setViewName("searchannouncement");
         return model;
     }
-
 
     @RequestMapping(value = "/addnewcompany", method = RequestMethod.POST)
     public void saveCompany(@RequestBody Company company) {

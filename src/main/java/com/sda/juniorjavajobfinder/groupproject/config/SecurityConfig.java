@@ -47,7 +47,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/console/**").permitAll()
                 .antMatchers("/company").authenticated()
-                .and().formLogin();
+                .and()
+                .formLogin()
+//                .loginPage("/login")
+                .defaultSuccessUrl("/company")
+                .and()
+                .logout()
+                .logoutSuccessUrl("/");
 
         securityConfig.csrf().disable();
         securityConfig.headers().frameOptions().disable();
