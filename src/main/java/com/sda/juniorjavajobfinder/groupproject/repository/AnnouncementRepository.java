@@ -11,4 +11,7 @@ import java.util.Optional;
 public interface AnnouncementRepository extends JpaRepository<Announcement, Long> {
 
     List<Announcement> findByCity_Id (Long id);
+
+    List<Announcement> findByDevskills_Id (Long id);
+    List<Announcement> findByDevskills_IdAndCity_Id (Long devSkillId, Long CityId);
 }

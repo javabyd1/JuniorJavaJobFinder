@@ -38,4 +38,13 @@ public class AnnouncementServiceImpl implements AnnouncementService {
     public List<Announcement> getCityAnnouncement(Long id) {
         return announcementRepository.findByCity_Id(id);
     }
+
+    public List<Announcement> getDevSkillsAnnouncement(Long id) {
+        return announcementRepository.findByDevskills_Id(id);
+    }
+
+    public List<Announcement> getCityOffersByDevskillsAndCities (Long devSkillId, Long cityId){
+        return announcementRepository.findByDevskills_IdAndCity_Id(devSkillId, cityId);
+    }
+
 }
