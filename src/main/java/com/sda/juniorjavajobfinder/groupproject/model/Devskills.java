@@ -1,5 +1,6 @@
 package com.sda.juniorjavajobfinder.groupproject.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -18,8 +19,10 @@ public class Devskills {
     private String area;
     private String name;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "devskills", cascade = CascadeType.ALL)
     private List<Announcement> annoucements;
+    @JsonBackReference
     @ManyToMany(cascade = CascadeType.ALL)
     private List<User> devUsers;
 
