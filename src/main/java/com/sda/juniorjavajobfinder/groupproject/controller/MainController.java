@@ -45,6 +45,7 @@ public class MainController {
         ModelAndView model = new ModelAndView();
         model.addObject("cities", cityService.getAllCity());
         model.addObject("devskills", devskillsService.getAllDevskills());
+        model.addObject("announcement", new Announcement());
         model.setViewName("home");
         return model;
     }
@@ -63,6 +64,34 @@ public class MainController {
         ModelAndView model = new ModelAndView();
         model.addObject("announcements", announcementService.getAllAnnouncement());
         model.setViewName("announcement");
+        return model;
+    }
+
+//    @GetMapping(value = "resultannouncement{city.id}")
+//    public ModelAndView resultSearch(@RequestParam("city.id") String id) {
+//        ModelAndView model = new ModelAndView();
+//        model.addObject("resultannouncement", announcementService.getCityAnnouncement((Long.valueOf(id))));
+//        model.setViewName("searchannouncement");
+//        System.out.println(id);
+//        return model;
+//    }
+
+//    @GetMapping(value = "resultannouncement{devskills.id}")
+//    public ModelAndView resultSearchDev(@RequestParam("devskills.id") String id) {
+//        ModelAndView model = new ModelAndView();
+//        model.addObject("resultannouncement", announcementService.getDevSkillsAnnouncement(Long.valueOf(id)));
+//        model.setViewName("searchannouncement");
+//        System.out.println(id);
+//        return model;
+//    }
+
+
+
+    @GetMapping(value = "resultannouncement{devskills.id}{city.id}")
+    public ModelAndView resultSearchByDevSkillsAndCities (@RequestParam("devskills.id")String devSkillId, @RequestParam("city.id") String cityId) {
+        ModelAndView model = new ModelAndView();
+        model.addObject("resultannouncement", announcementService.getCityOffersByDevskillsAndCities((Long.valueOf(devSkillId)),(Long.valueOf(cityId))));
+        model.setViewName("searchannouncement");
         return model;
     }
 

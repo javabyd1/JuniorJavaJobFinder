@@ -3,6 +3,9 @@ package com.sda.juniorjavajobfinder.groupproject.service;
 
 import com.sda.juniorjavajobfinder.groupproject.interfaces.AnnouncementService;
 import com.sda.juniorjavajobfinder.groupproject.model.Announcement;
+
+import com.sda.juniorjavajobfinder.groupproject.model.City;
+
 import com.sda.juniorjavajobfinder.groupproject.model.Devskills;
 
 import com.sda.juniorjavajobfinder.groupproject.repository.AnnouncementRepository;
@@ -54,4 +57,17 @@ public class AnnouncementServiceImpl implements AnnouncementService {
     public void deleteAnnouncement(Announcement annoucement) {
         announcementRepository.delete(annoucement);
     }
+
+    public List<Announcement> getCityAnnouncement(Long id) {
+        return announcementRepository.findByCity_Id(id);
+    }
+
+    public List<Announcement> getDevSkillsAnnouncement(Long id) {
+        return announcementRepository.findByDevskills_Id(id);
+    }
+
+    public List<Announcement> getCityOffersByDevskillsAndCities (Long devSkillId, Long cityId){
+        return announcementRepository.findByDevskills_IdAndCity_Id(devSkillId, cityId);
+    }
+
 }

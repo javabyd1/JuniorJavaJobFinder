@@ -13,7 +13,11 @@ import java.util.Optional;
 @Repository
 public interface AnnouncementRepository extends JpaRepository<Announcement, Long> {
 
+    List<Announcement> findByCity_Id (Long id);
+
+    List<Announcement> findByDevskills_Id (Long id);
+    List<Announcement> findByDevskills_IdAndCity_Id (Long devSkillId, Long CityId);
+
     List<Announcement> findByDevskills_Name(String name);
-//    Optional<Announcement> findByDevskills_Name(String devName);
     List<Announcement> findByDevskills_NameAndCityName(String devName, String cityName);
 }
