@@ -14,7 +14,7 @@
     <img src="css/tlo.jpg" style="width: 100%; height: 50%;"/>
 </div>
 <div class="well-searchbox">
-    <form class="form-horizontal" role="form" th:action="@{/annoucement}" method="get">
+    <form class="form-horizontal" role="form" th:action="@{/announcement}" method="get">
         <div class="form-group">
             <label class="col-md-4 control-label">Keyword</label>
             <div class="col-md-8">
@@ -25,7 +25,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label">Język</label>
             <div class="col-md-8">
-                <select class="form-control" placeholder="Devskills">
+                <select multiple="multiple" class="form-control" placeholder="Devskills">
 
                     <option value="">All</option>
                     <option th:each="devs : ${devskills}"
@@ -40,7 +40,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label">Miasto</label>
             <div class="col-md-8">
-                <select class="form-control" placeholder="Cities">
+                <select multiple="multiple" class="form-control" placeholder="Cities">
                     <option value="">All</option>
                     <option th:each="ciet : ${cities}"
                             th:value="${ciet.getId()}"
@@ -53,7 +53,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label">Wynagrodzenie</label>
             <div class="col-md-8">
-                <select class="form-control" placeholder="Salary">
+                <select multiple="multiple" class="form-control" placeholder="Salary">
                     <option value="">All</option>
                     <option value=""> -1500</option>
                     <option value="">1500-3000</option>
@@ -67,16 +67,22 @@
         <div class="form-group">
             <label class="col-md-4 control-label">Category</label>
             <div class="col-md-8">
-                <select class="form-control" placeholder="Category">
+                <select multiple="multiple" class="form-control" placeholder="Category">
                     <option value="">All</option>
                     <option value="">Category 1</option>
                     <option value="">Category 2</option>
                 </select>
             </div>
         </div>
-        <div class="col-sm-offset-4 col-sm-5">
-            <button type="submit" class="btn btn-success">Search</button>
-        </div>
+
+
+            <div class="col-sm-offset-4 col-sm-5">
+
+                <button type="submit" class="btn btn-success">Search</button>
+
+            </div>
+
+
     </form>
 </div>
 

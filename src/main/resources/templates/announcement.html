@@ -29,15 +29,17 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="annoucement : ${announcements}">
-            <td class="col-md-2" th:text="${annoucement.getDevskills().getName()}"></td>
-            <td class="col-md-2" th:text="${annoucement.getCompany().getName()}"></td>
-            <td class="col-md-2" th:text="${annoucement.getJobPosition()}"></td>
-            <td class="col-md-2" th:text="${annoucement.getCity().getName()}"></td>
-            <td class="col-md-1" th:text="${annoucement.getJobDescription()}"></td>
-            <td class="col-md-1" th:text="${annoucement.getDate()}"></td>
-            <td class="col-md-1" th:text="${annoucement.getMinSalary()}"></td>
-            <td class="col-md-1" th:text="${annoucement.getMaxSalary()}"></td>
+
+        <tr th:each="announcement : ${announcements}">
+            <td class="col-md-2" th:text="${announcement.getDevskills().getName()}"></td>
+            <td class="col-md-2" th:text="${announcement.getCompany().getName()}"></td>
+            <td class="col-md-2" th:text="${announcement.getJobPosition()}"></td>
+            <td class="col-md-2" th:text="${announcement.getCity().getName()}"></td>
+            <td class="col-md-1" th:text="${announcement.getJobDescription()}"></td>
+            <td class="col-md-1" th:text="${announcement.getDate()}"></td>
+            <td class="col-md-1" th:text="${announcement.getMinSalary()}"></td>
+            <td class="col-md-1" th:text="${announcement.getMaxSalary()}"></td>
+
         </tr>
         </tbody>
     </table>

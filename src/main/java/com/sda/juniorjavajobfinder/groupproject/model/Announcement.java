@@ -1,5 +1,6 @@
 package com.sda.juniorjavajobfinder.groupproject.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -26,16 +27,20 @@ public class Announcement {
     private BigDecimal minSalary;
     @Column(name = "max_salary")
     private BigDecimal maxSalary;
-
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "city_id")
     private City city;
+
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "devskills_id")
     private Devskills devskills;
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "recruiter_id")
     private User recruiter;
