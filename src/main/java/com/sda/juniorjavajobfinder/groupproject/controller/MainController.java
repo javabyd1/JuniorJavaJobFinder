@@ -26,7 +26,6 @@ public class MainController {
     @Autowired
     private AnnouncementServiceImpl announcementService;
 
-
     @GetMapping("/announcements/{name}")
     public ResponseEntity<List<Announcement>> findAnnouncementBySkills(@PathVariable(value = "name") String name) {
         return ResponseEntity
@@ -40,7 +39,6 @@ public class MainController {
                 .status(HttpStatus.OK)
                 .body(announcementService.getOffersByDevskillsAndCities(devName,cityName));
     }
-
 
     @GetMapping(value = "")
     public ModelAndView home() {
@@ -64,12 +62,9 @@ public class MainController {
     public ModelAndView showAnnoucements() {
         ModelAndView model = new ModelAndView();
         model.addObject("announcements", announcementService.getAllAnnouncement());
-
         model.setViewName("announcement");
-
         return model;
     }
-
 
     @RequestMapping(value = "/addnewcompany", method = RequestMethod.POST)
     public void saveCompany(@RequestBody Company company) {
