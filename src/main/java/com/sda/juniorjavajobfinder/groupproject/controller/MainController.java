@@ -34,10 +34,10 @@ public class MainController {
     }
 
     @GetMapping("/announcements/{devName}/{cityName}")
-    public ResponseEntity<List<Announcement>> findAnnouncementBySkillsAndCities(@PathVariable(value ="devName") String devName, @PathVariable(value = "cityName" ) String cityName){
+    public ResponseEntity<List<Announcement>> findAnnouncementBySkillsAndCities(@PathVariable(value = "devName") String devName, @PathVariable(value = "cityName") String cityName) {
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(announcementService.getOffersByDevskillsAndCities(devName,cityName));
+                .body(announcementService.getOffersByDevskillsAndCities(devName, cityName));
     }
 
     @GetMapping(value = "")
@@ -60,7 +60,7 @@ public class MainController {
     }
 
     @GetMapping(value = "announcement")
-    public ModelAndView showAnnoucements() {
+    public ModelAndView showAnnouncements() {
         ModelAndView model = new ModelAndView();
         model.addObject("announcements", announcementService.getAllAnnouncement());
         model.setViewName("announcement");
@@ -85,12 +85,10 @@ public class MainController {
 //        return model;
 //    }
 
-
-
     @GetMapping(value = "resultannouncement{devskills.id}{city.id}")
-    public ModelAndView resultSearchByDevSkillsAndCities (@RequestParam("devskills.id")String devSkillId, @RequestParam("city.id") String cityId) {
+    public ModelAndView resultSearchByDevSkillsAndCities(@RequestParam("devskills.id") String devSkillId, @RequestParam("city.id") String cityId) {
         ModelAndView model = new ModelAndView();
-        model.addObject("resultannouncement", announcementService.getCityOffersByDevskillsAndCities((Long.valueOf(devSkillId)),(Long.valueOf(cityId))));
+        model.addObject("resultannouncement", announcementService.getCityOffersByDevskillsAndCities((Long.valueOf(devSkillId)), (Long.valueOf(cityId))));
         model.setViewName("searchannouncement");
         return model;
     }
@@ -104,5 +102,4 @@ public class MainController {
 //        return ResponseEntity.status(HttpStatus.OK)
 //                .company(companyService.getCompanyById(id));
 //    }
-
 }
