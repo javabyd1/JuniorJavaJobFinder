@@ -2,19 +2,19 @@ package com.sda.juniorjavajobfinder.groupproject.controller;
 
 import com.sda.juniorjavajobfinder.groupproject.model.Announcement;
 import com.sda.juniorjavajobfinder.groupproject.model.Company;
-import com.sda.juniorjavajobfinder.groupproject.service.AnnouncementServiceImpl;
-import com.sda.juniorjavajobfinder.groupproject.service.CityServiceImpl;
-import com.sda.juniorjavajobfinder.groupproject.service.CompanyServiceImpl;
-import com.sda.juniorjavajobfinder.groupproject.service.DevskillsServiceImpl;
+import com.sda.juniorjavajobfinder.groupproject.model.User;
+import com.sda.juniorjavajobfinder.groupproject.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.List;
 
@@ -28,6 +28,34 @@ public class MainController {
     private DevskillsServiceImpl devskillsService;
     @Autowired
     private AnnouncementServiceImpl announcementService;
+    @Autowired
+    private UserServiceImpl userService;
+
+
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public ModelAndView registration(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("user", new User());
+        modelAndView.setViewName("register");
+        return modelAndView;
+    }
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public ModelAndView storeUser(@Valid User user, BindingResult bindingResult) {
+        ModelAndView modelAndView = new ModelAndView();
+        User userExist = userService.findByEmail(user.getEmail());
+        if (userExist != null) {
+            bindingResult.rejectValue("email",
+                    "error.user",
+                    "Email jest już zajety");
+        }
+        if (bindingResult.hasErrors()) {
+            modelAndView.setViewName("registration");
+        } else {
+            userService.saveUser(user);
+            modelAndView.addObject("successMessage", "zarejestrowales sie");
+        }
+        return modelAndView;
+    }
 
     @GetMapping("/announcements/{name}")
     public ResponseEntity<List<Announcement>> findAnnouncementBySkills(@PathVariable(value = "name") String name) {

@@ -26,7 +26,9 @@
             </label>
             <input class="btn btn-block btn-lg btn-success submit" type="submit" value="Login"/>
         </form>
-        <a href="#" class="btn btn-sm btn-primary register">Register</a>
+            <form th:action="@{/register}" method="get">
+        <input class="btn btn-sm btn-primary register" type="submit" value="Register" />
+            </form>
         <a href="#" class="btn btn-sm btn-default forgot">Forgot your password?</a>
     </div>
 </div>
