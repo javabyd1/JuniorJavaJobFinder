@@ -33,12 +33,13 @@ public class MainController {
 
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public ModelAndView registration(){
+    public ModelAndView registration() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("user", new User());
         modelAndView.setViewName("register");
         return modelAndView;
     }
+
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView storeUser(@Valid User user, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
