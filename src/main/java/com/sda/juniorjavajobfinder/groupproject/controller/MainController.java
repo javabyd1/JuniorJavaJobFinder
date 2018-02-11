@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -55,6 +54,26 @@ public class MainController {
             userService.saveUser(user);
             modelAndView.addObject("successMessage", "zarejestrowales sie");
         }
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/addannouncement", method = RequestMethod.GET)
+    public ModelAndView addingAnnouncement() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("announcement", new Announcement());
+        modelAndView.addObject("cities", cityService.getAllCity());
+        modelAndView.addObject("companylist", companyService.getAllCompanies());
+        modelAndView.addObject("devskill",devskillsService.getAllDevskills());
+        modelAndView.setViewName("addannouncement");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/addannouncement", method = RequestMethod.POST)
+    public ModelAndView storeAnnouncement(@Valid Announcement announcement, BindingResult bindingResult) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("addannouncement");
+        announcementService.createAnnouncement(announcement);
+        modelAndView.addObject("successMessage", "dodałeś ogłoszenie");
         return modelAndView;
     }
 
