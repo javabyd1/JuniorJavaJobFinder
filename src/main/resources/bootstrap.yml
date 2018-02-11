@@ -1,3 +1,6 @@
+# configuration server is located on https://github.com/javabyd1/ConfigServerForJobFinder
+# server has to be turn on to install configuration files
+# configuration files are located on https://github.com/javabyd1/ConfigJobFinderProject
 spring:
   application:
     name: job-finder-service
