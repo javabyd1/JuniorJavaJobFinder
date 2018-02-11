@@ -11,10 +11,32 @@
 </head>
 
 <body>
+
 <div class="container">
-        <div class="login">
-        <h4>Login to</h4>
+
+    <div class="login">
+
+        <!-- Background wallpaper -->
+        <div class="background-wallpaper">
+            <img src="css/team.jpg" style="width: 100%; height: 100%;"/>
+        </div>
+
+        <!-- Team members list -->
+        <h4>Welcome to</h4>
         <h4>Junior Java Job Finder</h4>
+        <h4>Our final SDA group project</h4>
+
+        <div class="team">
+            <br></br>
+            <p>Team members:</p>
+            <ul>
+                <li>Natalia Lewandowska</li>
+                <li>Bartosz Jańczak</li>
+                <li>Paweł Orłowski</li>
+                <li>Dariusz Różański</li>
+                <li>Marcin Kroszel</li>
+            </ul>
+        </div>
 
         <form class="login-inner" method="post" th:action="@{/login}">
 
@@ -26,12 +48,14 @@
             </label>
             <input class="btn btn-block btn-lg btn-success submit" type="submit" value="Login"/>
         </form>
-            <form th:action="@{/register}" method="get">
-        <input class="btn btn-sm btn-primary register" type="submit" value="Register" />
-            </form>
+        <form th:action="@{/register}" method="get">
+            <input class="btn btn-sm btn-primary register" type="submit" value="Register"/>
+        </form>
         <a href="#" class="btn btn-sm btn-default forgot">Forgot your password?</a>
+
     </div>
 </div>
+
 
 </body>
 </html>

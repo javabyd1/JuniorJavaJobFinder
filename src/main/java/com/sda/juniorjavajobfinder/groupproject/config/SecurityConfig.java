@@ -47,8 +47,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity securityConfig) throws Exception {
-        securityConfig
+    protected void configure(HttpSecurity http) throws Exception {
+        http
              .authorizeRequests()
                 .antMatchers("/login","/register").permitAll()
                 .anyRequest().authenticated()
@@ -56,11 +56,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
              .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("http://localhost:8888/")
+                .failureUrl("/login.html?error=true")
                 .and()
-            .logout()
+             .logout()
+                .logoutUrl("/logout")
                 .logoutSuccessUrl("/login");
 
-        securityConfig.csrf().disable();
-        securityConfig.headers().frameOptions().disable();
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
     }
 }
