@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{css/register.css}" type="text/css"/>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Dodaj ogłoszenie</h3>
+                </div>
+                <div class="panel-body">
+                    <form th:action="@{/addingannouncement}" method="post" th:object="${announcement}">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="podaj pozycje" id="jobPosition" name="jobPosition"
+                                       type="text" th:field="*{jobPosition}"/>
+                                <label th:if="${#fields.hasErrors('jobPosition')}"
+                                       th:errors="*{jobPosition}" class="validation-message"></label><br/>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="podaj opis" id="jobDescription" name="jobDescription" type="text"
+                                       th:field="*{jobDescription}"/>
+                                <label th:if="${#fields.hasErrors('jobDescription')}"
+                                       th:errors="*{jobDescription}" class="validation-message"></label><br/>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="podaj minimalne wynagrodzenie" id="minSalary" name="minSalary"
+                                       type="text" th:field="*{minSalary}"/>
+                                <label th:if="${#fields.hasErrors('minSalary')}"
+                                       th:errors="*{minSalary}" class="validation-message"></label><br/>
+                            </div>
+
+                            <div class="form-group">
+                                <input class="form-control" placeholder="podaj maksymalne wynagrodzenie" id="max_salary" name="max_salary"
+                                        type="text" th:field="*{maxSalary}"/>
+                                <label th:if="${#fields.hasErrors('maxSalary')}"
+                                       th:errors="*{maxSalary}" class="validation-message"></label><br/>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" placeholder="Company" th:field="*{company.id}">
+                                    <option th:each="comp : ${companylist}"
+                                            th:value="${comp.getId()}"
+                                            th:text="${comp.getName()}">
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                    <select class="form-control" placeholder="Cities" th:field="*{city.id}">
+                                        <option th:each="ciet : ${cities}"
+                                                th:value="${ciet.getId()}"
+                                                th:text="${ciet.getName()}">
+                                        </option>
+                                    </select>
+                            </div>
+                            <div class="form-group">
+                                    <select class="form-control" placeholder="Devskills" th:field="*{devskills.id}">
+                                        <option th:each="dev : ${devskill}"
+                                                th:value="${dev.getId()}"
+                                                th:text="${dev.getName()}">
+                                        </option>
+                                    </select>
+                            </div>
+                            <input class="btn btn-lg btn-success btn-block" name="Submit" type="submit"
+                                   value="Dodaj ogłoszenie"/>
+                        </fieldset>
+                    </form>
+                    <br />
+                    <form th:action="@{/login}" method="get">
+                        <input class="btn btn-lg btn-success btn-block" name="Submit" type="submit" style="background-color: dodgerblue"
+                               value="Do strony logowania" />
+                    </form>
+                    <hr />
+                    <div class="alert alert-success" th:if="${successMessage}" th:text="${successMessage}">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
