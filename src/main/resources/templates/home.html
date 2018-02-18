@@ -8,77 +8,120 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" th:href="@{/css/bar.css}"/>
 </head>
 
 <body>
-
-<form th:action="@{/logout}" method="post">
-    <button class="btn btn-danger" name="registration" type="submit">Logout</button>
-</form>
-
 <div class="search-background">
     <img src="css/tlo.jpg" style="width: 100%; height: 100%;"/>
 </div>
 
 <div class="well-searchbox">
-    <form class="form-horizontal" role="form" th:action="@{/resultannouncement}" th:object="${announcement}" method="post">
-        <fieldset>
-        <div class="form-group">
-            <label class="col-md-4 control-label">Keyword</label>
-            <div class="col-md-8">
-                <input type="text" class="form-control" placeholder="Keyword"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-md-4 control-label">Język</label>
-            <div class="col-md-8">
-                <select multiple="multiple" class="form-control" placeholder="Devskills" th:field="*{devskills.id}">
+    <div class="container-fluid">
+        <!-- Second navbar for profile settings -->
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-4">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="home" class="navbar-brand">JUNIOR JOB FINDER</a>
+                </div>
 
-                    <option value="">All</option>
-                    <option th:each="devs : ${devskills}"
-                            th:value="${devs.getId()}"
-                            th:text="${devs.getName()}">
-                    </option>
-                </select>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-collapse-4">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="home">Wyszukaj</a></li>
+                        <li><a href="company">Firmy</a></li>
+                        <li><a href="announcement">Ogłoszenia</a></li>
+                        <li><a href="addannouncement">Dodaj ogłoszenie</a></li>
+                        <li><a href="#">Dodaj firmę</a></li>
+                        <li><a href="#">Kontact</a></li>
+                        <li>
+                            <a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse4" aria-expanded="false" aria-controls="nav-collapse4">Profile <i class=""></i> </a>
+                        </li>
+                    </ul>
+                    <ul class="collapse nav navbar-nav nav-collapse" role="search" id="nav-collapse4">
+                        <li><a href="#">Support</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img class="img-circle" src="https://pbs.twimg.com/profile_images/588909533428322304/Gxuyp46N.jpg" alt="maridlcrmn" width="20" /> Maridlcrmn <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Mój profil</a></li>
+                                <li><a href="#">Ulubione</a></li>
+                                <li><a href="#">Ustawienia</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/logout">Wyloguj</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container -->
+        </nav><!-- /.navbar -->
+    </div><!-- /.container-fluid -->
+
+    <form class="form-horizontal" role="form" th:action="@{/resultannouncement}" th:object="${announcement}"
+          method="post">
+        <fieldset>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Keyword</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" placeholder="Keyword"/>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label class="col-md-4 control-label">Miasto</label>
-            <div class="col-md-8">
-                <select multiple="multiple" class="form-control" placeholder="Cities" th:field="*{city.id}">
-                    <option th:each="ciet : ${cities}"
-                            th:value="${ciet.getId()}"
-                            th:text="${ciet.getName()}">
-                    </option>
-                </select>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Język</label>
+                <div class="col-md-8">
+                    <select multiple="multiple" class="form-control" placeholder="Devskills" th:field="*{devskills.id}">
+
+                        <option value="">All</option>
+                        <option th:each="devs : ${devskills}"
+                                th:value="${devs.getId()}"
+                                th:text="${devs.getName()}">
+                        </option>
+                    </select>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label class="col-md-4 control-label">Wynagrodzenie</label>
-            <div class="col-md-8">
-                <select multiple="multiple" class="form-control" placeholder="Salary">
-                    <option value="">All</option>
-                    <option value=""> -1500</option>
-                    <option value="">1500-3000</option>
-                    <option value="">3000-5000</option>
-                    <option value="">5000- 9000</option>
-                    <option value="">10000-</option>
-                </select>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Miasto</label>
+                <div class="col-md-8">
+                    <select multiple="multiple" class="form-control" placeholder="Cities" th:field="*{city.id}">
+                        <option th:each="ciet : ${cities}"
+                                th:value="${ciet.getId()}"
+                                th:text="${ciet.getName()}">
+                        </option>
+                    </select>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label class="col-md-4 control-label">Category</label>
-            <div class="col-md-8">
-                <select multiple="multiple" class="form-control" placeholder="Category">
-                    <option value="">All</option>
-                    <option value="">Category 1</option>
-                    <option value="">Category 2</option>
-                </select>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Wynagrodzenie</label>
+                <div class="col-md-8">
+                    <select multiple="multiple" class="form-control" placeholder="Salary">
+                        <option value="">All</option>
+                        <option value=""> -1500</option>
+                        <option value="">1500-3000</option>
+                        <option value="">3000-5000</option>
+                        <option value="">5000- 9000</option>
+                        <option value="">10000-</option>
+                    </select>
+                </div>
             </div>
-        </div>
-        <div class="col-sm-offset-4 col-sm-5">
-            <button type="submit" class="btn btn-success">Search</button>
-        </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Category</label>
+                <div class="col-md-8">
+                    <select multiple="multiple" class="form-control" placeholder="Category">
+                        <option value="">All</option>
+                        <option value="">Category 1</option>
+                        <option value="">Category 2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-offset-4 col-sm-5">
+                <button type="submit" class="btn btn-success">Search</button>
+            </div>
         </fieldset>
     </form>
 </div>
