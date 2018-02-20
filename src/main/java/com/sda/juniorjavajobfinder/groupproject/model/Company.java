@@ -16,17 +16,23 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "company_id")
     private Long id;
+
     private String name;
+
     @Column(name = "street_name")
     private String streetName;
+
     @Column(name = "street_number")
     private String streetNumber;
+
     private String city;
     private String email;
     private String description;
+
     @JsonBackReference
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     private List<User> recruiters;
+
     @JsonBackReference
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     private List<Announcement> annoucements;

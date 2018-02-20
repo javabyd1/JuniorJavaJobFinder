@@ -6,7 +6,6 @@ import java.util.List;
 
 
 public interface CompanyService {
-
     List<Company> getAllCompanies();
     Company createCompany(Company company);
     Company updateCompany(Company company);

@@ -1,12 +1,9 @@
-# configuration server is located on https://github.com/javabyd1/ConfigServerForJobFinder
-# server has to be turn on to install configuration files
-# configuration files are located on https://github.com/javabyd1/ConfigJobFinderProject
 spring:
-  application:
-    name: job-finder-service
-  cloud:
-    config:
-      env: default # optional
-      label: master # optional
-#      uri: http://192.168.10.91:8889 # optional
-      uri: http://localhost:8889 # optional
+  h2.console:
+    enabled: true
+    path: /h2-console
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+server.port: 8888

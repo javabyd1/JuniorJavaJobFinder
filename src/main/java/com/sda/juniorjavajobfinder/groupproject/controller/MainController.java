@@ -63,7 +63,7 @@ public class MainController {
         modelAndView.addObject("announcement", new Announcement());
         modelAndView.addObject("cities", cityService.getAllCity());
         modelAndView.addObject("companylist", companyService.getAllCompanies());
-        modelAndView.addObject("devskill",devskillsService.getAllDevskills());
+        modelAndView.addObject("devskill", devskillsService.getAllDevskills());
         modelAndView.setViewName("addannouncement");
         return modelAndView;
     }

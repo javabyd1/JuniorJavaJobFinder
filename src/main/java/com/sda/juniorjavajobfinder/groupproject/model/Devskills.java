@@ -22,6 +22,7 @@ public class Devskills {
     @JsonBackReference
     @OneToMany(mappedBy = "devskills", cascade = CascadeType.ALL)
     private List<Announcement> annoucements;
+
     @JsonBackReference
     @ManyToMany(cascade = CascadeType.ALL)
     private List<User> devUsers;

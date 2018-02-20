@@ -18,19 +18,25 @@ public class Announcement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
     @Column(name = "job_position")
     private String jobPosition;
+
     @Column(name = "job_description")
     private String jobDescription;
     private LocalDate date;
+
     @Column(name = "min_salary")
     private BigDecimal minSalary;
+
     @Column(name = "max_salary")
     private BigDecimal maxSalary;
+
     @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
+
     @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "city_id")
@@ -40,6 +46,7 @@ public class Announcement {
     @ManyToOne
     @JoinColumn(name = "devskills_id")
     private Devskills devskills;
+
     @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "recruiter_id")
